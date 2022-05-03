@@ -15,6 +15,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.sql.Date;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 
 @SpringBootTest
 class BoxOfficeApplicationTests {
@@ -32,16 +34,16 @@ class BoxOfficeApplicationTests {
 		Theatre get_theatre = theatreDAO.getRecordByID(testing_record_id);
 		System.out.println(get_theatre);
 		System.out.println(put_theatre);
-		assert(put_theatre == get_theatre);
+		assertEquals(put_theatre, get_theatre);
 
 		List<Theatre> theatresList= theatreDAO.getTheatresList();
-		assert(theatresList.get(theatresList.size() - 1) == get_theatre);
+		assertEquals(theatresList.get(theatresList.size() - 1), get_theatre);
 
 		Theatre deleted_theatre = theatreDAO.deleteRecordByID(testing_record_id);
-		assert(deleted_theatre != null);
+		assertNotNull(deleted_theatre);
 
 		Theatre get_after_delete_theatre = theatreDAO.getRecordByID(testing_record_id);
-		assert(get_after_delete_theatre == null);
+		assertNull(get_after_delete_theatre);
 	}
 
 	@Test
@@ -58,16 +60,16 @@ class BoxOfficeApplicationTests {
 		Event get_event = eventDAO.getRecordByID(testing_record_id);
 		System.out.println(get_event);
 		System.out.println(put_event);
-		assert(put_event == get_event);
+		assertEquals(put_event, get_event);
 
 		List<Event> eventsList= eventDAO.getEventsList();
-		assert(eventsList.get(eventsList.size() - 1) == get_event);
+		assertEquals(eventsList.get(eventsList.size() - 1), get_event);
 
 		Event deleted_event = eventDAO.deleteRecordByID(testing_record_id);
-		assert(deleted_event != null);
+		assertNotNull(deleted_event);
 
 		Event get_after_delete_event = eventDAO.getRecordByID(testing_record_id);
-		assert(get_after_delete_event == null);
+		assertNull(get_after_delete_event );
 	}
 
 	@Test
@@ -82,16 +84,16 @@ class BoxOfficeApplicationTests {
 		Ticket get_ticket = ticketDAO.getRecordByID(testing_record_id);
 		System.out.println(get_ticket);
 		System.out.println(put_ticket);
-		assert(put_ticket == get_ticket);
+		assertEquals(put_ticket, get_ticket);
 
 		List<Ticket> ticketsList= ticketDAO.getTicketsList();
-		assert(ticketsList.get(ticketsList.size() - 1) == get_ticket);
+		assertEquals(ticketsList.get(ticketsList.size() - 1), get_ticket);
 
 		Ticket deleted_ticket = ticketDAO.deleteRecordByID(testing_record_id);
-		assert(deleted_ticket != null);
+		assertNotNull(deleted_ticket);
 
 		Ticket get_after_delete_ticket = ticketDAO.getRecordByID(testing_record_id);
-		assert(get_after_delete_ticket == null);
+		assertNull(get_after_delete_ticket);
 	}
 
 	@Test
@@ -105,16 +107,16 @@ class BoxOfficeApplicationTests {
 		Performance get_performance = performanceDAO.getRecordByID(testing_record_id);
 		System.out.println(get_performance);
 		System.out.println(put_performance);
-		assert(put_performance == get_performance);
+		assertEquals(put_performance, get_performance);
 
 		List<Performance> performancesList= performanceDAO.getPerformancesList();
-		assert(performancesList.get(performancesList.size() - 1) == get_performance);
+		assertEquals(performancesList.get(performancesList.size() - 1), get_performance);
 
 		Performance deleted_performance = performanceDAO.deleteRecordByID(testing_record_id);
-		assert(deleted_performance != null);
+		assertNotNull(deleted_performance);
 
 		Performance get_after_delete_performance = performanceDAO.getRecordByID(testing_record_id);
-		assert(get_after_delete_performance == null);
+		assertNull(get_after_delete_performance);
 	}
 
 
