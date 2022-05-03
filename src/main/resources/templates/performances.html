@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Спектакли</title>
+</head>
+<body>
+<h1>Список спектаклей:</h1>
+<ul class="list-group">
+    <tr th:each="performance: ${performancesList}">
+        <li class="list-group-item"><td th:text="${performance.name}" /></li>
+    </tr>
+</ul>
+
+</body>
+</html>
