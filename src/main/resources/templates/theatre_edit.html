@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Редактирование театра</title>
+    <style>
+        .indent {
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body class="indent">
+<h1>Измените данные театра:</h1>
+<form  method="post" action="#" th:href="@{/theatres/theatre/edit?th_id={th_id}(th_id=${th_id})}">
+    <div class="form-group">
+        <label for="th_name">Название</label>
+        <input name="th_name" type="text" class="form-control" id="th_name">
+    </div>
+    <div class="form-group">
+        <label for="address">Адрес</label>
+        <input name="address" type="text" class="form-control" id="address">
+    </div>
+    <div class="form-group">
+        <label for="producers">Режиссеры</label>
+        <input name="producers" type="text" class="form-control" id="producers">
+    </div>
+    <div class="form-group">
+        <label for="actors">Актеры</label>
+        <input name="actors" type="text" class="form-control" id="actors">
+    </div>
+    <div class="form-group">
+        <label for="th_image_url">Ссылка на изображение театра</label>
+        <input name="th_image_url" type="text" class="form-control" id="th_image_url">
+    </div>
+    <div class="form-group">
+        <label for="seats_map_image_url">Ссылка на изображение с картой мест в зале</label>
+        <input name="seats_map_image_url" type="text" class="form-control" id="seats_map_image_url">
+    </div>
+    <div class="form-group">
+        <label for="description">Описание</label>
+        <input name="description" type="text" class="form-control" id="description">
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+</form>
+</body>
+</html>

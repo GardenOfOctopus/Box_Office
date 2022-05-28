@@ -54,7 +54,6 @@ public class Performance {
 
     @Getter
     @Setter
-    @org.hibernate.validator.constraints.URL
     private String perf_image_url;
 
     @Getter

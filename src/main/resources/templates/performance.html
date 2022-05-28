@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title th:text="${performance.perf_name}">Title</title>
+    <style>
+        .indent {
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body class="indent">
+    <h1 th:text="${performance.perf_name}">NAME</h1>
+    <br>
+    <img th:src = "${performance.perf_image_url}" height = "600" style="padding: 10px;">
+
+    <p th:text="${performance.description}">DESCRIPTION</p>
+
+    <p>
+        <h2>Расписание:</h2>
+        <table class="table" id="timetable">
+            <tbody>
+                <tr th:each="event: ${perf_events}">
+                    <td id="date_column" th:text="${event.ev_date}">Дата</td>
+                    <td align="right"><a th:href="@{/buy_ticket?ev_id={ev_id}(ev_id=${event.ev_id})}">
+                        <button id="buy_button" type="button" class="btn btn-primary">Купить билет</button>
+                    </a></td>
+                </tr>
+            </tbody>
+        </table>
+    </p>
+
+</body>
+</html>

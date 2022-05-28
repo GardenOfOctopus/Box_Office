@@ -17,5 +17,4 @@ public class PerformancesPageController {
         model.addAttribute("performancesList", performancesList);
         return "performances.html";
     }
-
 }

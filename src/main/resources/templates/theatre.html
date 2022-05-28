@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title th:text="${theatre.th_name}"></title>
+    <style>
+        .indent {
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body class="indent">
+    <h1 th:text="${theatre.th_name}"></h1>
+    <img th:src = "${theatre.th_image_url}" height = "600" style="padding: 10px;">
+    <h5>Адрес театра:</h5>
+    <p th:text="${theatre.address}"></p>
+    <h5>Режиссеры театра:</h5>
+    <p th:text="${theatre.producers}"></p>
+    <h5>Актеры театра:</h5>
+    <p th:text="${theatre.actors}"></p>
+    <h5>О театре:</h5>
+    <p th:text="${theatre.description}"></p>
+
+    <h3>Спектакли театра:</h3>
+    <ul id="perfs_list" class="list-group">
+        <li class="list-group-item" th:each="performance: ${performancesList}">
+            <a href="#" th:href="@{/performances/performance?perf_id={perf_id}(perf_id=${performance.perf_id})}"><h5 th:text="${performance.perf_name}"></h5></a>
+        </li>
+    </ul>
+    <br>
+    <a href="#" th:href="@{/theatres/theatre/edit?th_id={th_id}(th_id=${theatre.theatre_id})}">
+        <button type="button" class="btn btn-primary">Редактировать театр</button>
+    </a>
+    <a href="#" th:href="@{/theatres/theatre/delete?th_id={th_id}(th_id=${theatre.theatre_id})}">
+        <button type="button" class="btn btn-danger">Удалить театр</button>
+    </a>
+    <br>
+</body>
+</html>

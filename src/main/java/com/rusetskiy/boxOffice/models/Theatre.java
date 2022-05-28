@@ -69,12 +69,10 @@ public class Theatre{
 
     @Getter
     @Setter
-    @URL
     private String th_image_url;
 
     @Getter
     @Setter
-    @URL
     private String seats_map_image_url;
 
     @Getter

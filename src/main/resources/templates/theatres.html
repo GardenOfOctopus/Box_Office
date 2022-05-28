@@ -5,14 +5,22 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>Театры</title>
+    <style>
+        .indent {
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
-<body>
+<body class="indent">
     <h1>Список театров:</h1>
-    <ul class="list-group">
-        <tr th:each="theatre: ${theatresList}">
-            <li class="list-group-item"><td th:text="${theatre.th_name}" /></li>
-        </tr>
+    <ul id="theatres_list" class="list-group" >
+        <li class="list-group-item" th:each="theatre: ${theatresList}">
+            <a href="#" th:href="@{/theatres/theatre?th_id={th_id}(th_id=${theatre.theatre_id})}"><h5 th:text="${theatre.th_name}"></h5></a>
+        </li>
     </ul>
-
+    <br>
+    <a href="/theatres/add"><button id="add_theatre_button" type="button" class="btn btn-primary">Добавить театр</button></a>
 </body>
 </html>

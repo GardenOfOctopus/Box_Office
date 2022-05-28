@@ -28,6 +28,15 @@ public class TicketDAO {
         return ticketsList;
     }
 
+    public List<Ticket> getTicketsListByEvId(int ev_id){
+        manager.getTransaction().begin();
+        String query_text = "Select * from tickets where saled=false and ev_id = " + Integer.toString(ev_id) + ";";
+        List<Ticket> ticketsList = manager.createNativeQuery(query_text, Ticket.class).getResultList();
+        manager.getTransaction().commit();
+        return ticketsList;
+    }
+
+
     public int putRecord(Ticket ticket) throws EntityExistsException, IllegalArgumentException, TransactionRequiredException {
         manager.getTransaction().begin();
         manager.persist(ticket);

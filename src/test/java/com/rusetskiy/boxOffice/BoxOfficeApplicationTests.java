@@ -118,7 +118,4 @@ class BoxOfficeApplicationTests {
 		Performance get_after_delete_performance = performanceDAO.getRecordByID(testing_record_id);
 		assertNull(get_after_delete_performance);
 	}
-
-
-
 }

@@ -10,6 +10,10 @@ import java.util.Map;
 public class MyJson implements Serializable{
     private Map<String, String> seats = new HashMap<String, String>();
 
+    public MyJson(){
+
+    }
+
     @JsonAnyGetter
     public Map<String, String> getSeats() {
         return seats;

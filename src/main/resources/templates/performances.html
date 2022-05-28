@@ -5,14 +5,20 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>Спектакли</title>
+    <style>
+        .indent {
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
-<body>
-<h1>Список спектаклей:</h1>
-<ul class="list-group">
-    <tr th:each="performance: ${performancesList}">
-        <li class="list-group-item"><td th:text="${performance.perf_name}" /></li>
-    </tr>
-</ul>
-
+<body class="indent">
+    <h1>Список спектаклей:</h1>
+    <ul class="list-group" th:each="performance: ${performancesList}">
+        <li class="list-group-item">
+            <a href="#" th:href="@{/performances/performance?perf_id={perf_id}(perf_id=${performance.perf_id})}"><h5 th:text="${performance.perf_name}"></h5></a>
+        </li>
+    </ul>
 </body>
 </html>

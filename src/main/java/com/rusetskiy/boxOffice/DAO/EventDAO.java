@@ -28,6 +28,14 @@ public class EventDAO{
         return eventsList;
     }
 
+    public List<Event> getEventsListByPerfId(int perf_id){
+        manager.getTransaction().begin();
+        String query_text = "Select * from events where perf_id = " + Integer.toString(perf_id) + ";";
+        List<Event> eventsList = manager.createNativeQuery(query_text, Event.class).getResultList();
+        manager.getTransaction().commit();
+        return eventsList;
+    }
+
     public int putRecord(Event event) throws EntityExistsException, IllegalArgumentException, TransactionRequiredException {
         manager.getTransaction().begin();
         manager.persist(event);

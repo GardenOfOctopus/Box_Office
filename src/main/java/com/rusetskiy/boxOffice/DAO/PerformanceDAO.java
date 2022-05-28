@@ -1,5 +1,6 @@
 package com.rusetskiy.boxOffice.DAO;
 
+import com.rusetskiy.boxOffice.models.Event;
 import com.rusetskiy.boxOffice.models.Performance;
 
 import javax.persistence.*;
@@ -23,6 +24,14 @@ public class PerformanceDAO {
     public List<Performance> getPerformancesList(){
         manager.getTransaction().begin();
         List<Performance> performancesList = manager.createNativeQuery("Select * from performances;", Performance.class).getResultList();
+        manager.getTransaction().commit();
+        return performancesList;
+    }
+
+    public List<Performance> getPerfsListByThId(int th_id){
+        manager.getTransaction().begin();
+        String query_text = "Select * from performances where th_id = " + Integer.toString(th_id) + ";";
+        List<Performance> performancesList = manager.createNativeQuery(query_text, Performance.class).getResultList();
         manager.getTransaction().commit();
         return performancesList;
     }
